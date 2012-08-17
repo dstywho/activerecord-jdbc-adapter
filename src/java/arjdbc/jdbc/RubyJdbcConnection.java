@@ -1297,6 +1297,7 @@ public class RubyJdbcConnection extends RubyObject {
         tableName = caseConvertIdentifierForJdbc(metadata, tableName);
 
         if (schemaName != null && !databaseSupportsSchemas()) { catalog = schemaName; }
+        if(catalog.equals("")){ catalog = null; }
 
         return new TableNameComponents(catalog, schemaName, tableName);
     }
